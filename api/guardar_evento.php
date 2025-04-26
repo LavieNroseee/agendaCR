@@ -12,9 +12,9 @@ $enlace_virtual = $_POST['enlace_virtual'];
 
 // Preparar y ejecutar la consulta SQL
 $sql = "INSERT INTO actividades (asunto_actividad, convoca, participantes, hora, lugar,descripcion, enlace_virtual) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        VALUES (?, ?, ?, ?, ?, ?, ?)";
 $stmt = $conexion->prepare($sql);
-$stmt->execute([$asunto_actividad, $convoca, $participantes, $hora, $lugar,$descripcion, $enlace_virtual, $color]);
+$stmt->execute([$asunto_actividad, $convoca, $participantes, $hora, $lugar,$descripcion, $enlace_virtual]);
 
  
 function generarColorAleatorio() {
