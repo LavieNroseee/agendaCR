@@ -1,0 +1,251 @@
+body {
+  font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #1250AC;
+}
+
+a {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1250AC;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+
+#calendar {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 90px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Opcional: mejora el tamaño de letra en los eventos */
+.fc-event-title {
+  font-size: 12px;
+}
+
+/* Botones del calendario */
+.fc .fc-button {
+  background-color: #1250AC;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.fc .fc-button:hover {
+  background-color: #34495e;
+}
+
+.fc .fc-button-primary:not(:disabled):active,
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+  background-color: #1a252f;
+}
+
+/* Estilo general de los eventos */
+.fc-event {
+  background-color: #1250AC !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 5px !important;
+  padding: 6px 8px !important;
+  font-size: 5px !important;
+  font-weight: 200 !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.fc-daygrid-event-harness {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.fc-daygrid-day {
+  min-height: 100px;  /* Aumentar la altura de las celdas si es necesario */
+}
+.fc-daygrid-day-number {
+  position: relative;
+}
+
+.fc-daygrid-event {
+  margin-bottom: 5px;  /* Reducir el espacio inferior entre eventos */
+  padding: 4px 6px;    /* Ajustar el padding del evento */
+  font-size: 0.4em;
+}
+
+.fc-daygrid-event.fc-v-event {
+  margin-top: 2px; /* Reducir el espacio entre eventos */
+}
+
+/* Estilo del punto al lado de la hora */
+.fc-daygrid-event-dot {
+  background-color: white !important;
+}
+
+/* Para que el título se vea bien */
+.fc-event-title {
+  white-space: normal;
+  line-height: 1.2;
+}
+
+/* Hover del evento */
+.fc-event:hover {
+  background-color: #1250AC !important;
+  cursor: pointer;
+  transform: scale(1.02);
+  transition: 0.2s ease-in-out;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 1500px;
+  margin: auto;
+  padding: 50px;
+}
+
+/* Formulario */
+.formulario {
+  background-color: #ffffff;
+  padding: 40px 40px 20px 20px;
+  border-radius: 12px;
+  width: 30%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.formulario h2 {
+  margin-top: 0;
+  color: #1250AC;
+}
+
+.formulario label {
+ 
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.formulario input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.formulario button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #1250AC;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.formulario button:hover {
+  background-color: #1250AC;
+}
+
+/* Calendario */
+#calendar {
+  width: 65%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000; /* Asegura que el modal esté sobre todo */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Centrado en la pantalla */
+  width: 500px;  /* Ajustar el tamaño */
+  max-width: 90%; /* Que ocupe el 90% del ancho de la pantalla */
+  background-color: rgba(0, 0, 0, 0.1); /* Fondo semitransparente */
+  border-radius: 10px;  /* Bordes redondeados */
+  padding: 2px;
+
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #333;
+}
+
+p {
+  font-size: 1em;
+  color: #555;
+  margin: 10px 0;
+}
+
+strong {
+  color: #333;
+}
+
+#eventEnlace {
+  color: #4CAF50; /* Color verde */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#eventEnlace:hover {
+  text-decoration: underline;
+}
+
+/* Botón de cerrar */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  color: #333;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.close:hover {
+  color: #f44336; /* Rojo en hover */
+}
+
+/* Animación de fade-in */
+.modal {
+  display: none;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
