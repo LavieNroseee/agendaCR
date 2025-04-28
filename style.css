@@ -1,3 +1,4 @@
+/* ESTILOS GENERALES */
 body {
   font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f9f9f9;
@@ -12,6 +13,11 @@ h1 {
   color: #1250AC;
 }
 
+h2 {
+  font-size: 1.5em;
+  color: #333;
+}
+
 a {
   display: block;
   text-align: center;
@@ -22,94 +28,27 @@ a {
   font-size: 15px;
 }
 
-
-#calendar {
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 90px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+p {
+  font-size: 1em;
+  color: #555;
+  margin: 10px 0;
 }
 
-
-/* Opcional: mejora el tamaño de letra en los eventos */
-.fc-event-title {
-  font-size: 12px;
+strong {
+  color: #333;
 }
 
-/* Botones del calendario */
-.fc .fc-button {
-  background-color: #1250AC;
-  border: none;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
+#eventEnlace {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.fc .fc-button:hover {
-  background-color: #34495e;
+#eventEnlace:hover {
+  text-decoration: underline;
 }
 
-.fc .fc-button-primary:not(:disabled):active,
-.fc .fc-button-primary:not(:disabled).fc-button-active {
-  background-color: #1a252f;
-}
-
-/* Estilo general de los eventos */
-.fc-event {
-  background-color: #1250AC !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 5px !important;
-  padding: 6px 8px !important;
-  font-size: 5px !important;
-  font-weight: 200 !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-.fc-daygrid-event-harness {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.fc-daygrid-day {
-  min-height: 100px;  /* Aumentar la altura de las celdas si es necesario */
-}
-.fc-daygrid-day-number {
-  position: relative;
-}
-
-.fc-daygrid-event {
-  margin-bottom: 5px;  /* Reducir el espacio inferior entre eventos */
-  padding: 4px 6px;    /* Ajustar el padding del evento */
-  font-size: 0.4em;
-}
-
-.fc-daygrid-event.fc-v-event {
-  margin-top: 2px; /* Reducir el espacio entre eventos */
-}
-
-/* Estilo del punto al lado de la hora */
-.fc-daygrid-event-dot {
-  background-color: white !important;
-}
-
-/* Para que el título se vea bien */
-.fc-event-title {
-  white-space: normal;
-  line-height: 1.2;
-}
-
-/* Hover del evento */
-.fc-event:hover {
-  background-color: #1250AC !important;
-  cursor: pointer;
-  transform: scale(1.02);
-  transition: 0.2s ease-in-out;
-}
-
+/* CONTENEDOR PRINCIPAL */
 .contenedor {
   display: flex;
   justify-content: space-between;
@@ -120,7 +59,7 @@ a {
   padding: 50px;
 }
 
-/* Formulario */
+/* FORMULARIO */
 .formulario {
   background-color: #ffffff;
   padding: 40px 40px 20px 20px;
@@ -135,13 +74,13 @@ a {
 }
 
 .formulario label {
- 
   display: block;
   margin-top: 10px;
   font-weight: bold;
 }
 
-.formulario input, textarea {
+.formulario input, 
+.formulario textarea {
   width: 100%;
   padding: 8px;
   margin-top: 4px;
@@ -160,92 +99,152 @@ a {
 }
 
 .formulario button:hover {
-  background-color: #1250AC;
+  background-color: #0d3a85;
 }
 
-/* Calendario */
+/* CALENDARIO */
 #calendar {
   width: 65%;
+  max-width: 900px;
+  margin: 0 auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* FULLCALENDAR */
+.fc-event-title {
+  font-size: 12px;
+  white-space: normal;
+  line-height: 1.2;
+}
+
+.fc .fc-button {
+  background-color: #1250AC;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.fc .fc-button:hover {
+  background-color: #34495e;
+}
+
+.fc .fc-button-primary:not(:disabled):active,
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+  background-color: #1a252f;
+}
+
+.fc-event {
+  background-color: #1250AC !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 5px !important;
+  padding: 6px 8px !important;
+  font-size: 5px !important;
+  font-weight: 200 !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.fc-daygrid-event-harness {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.fc-daygrid-day {
+  min-height: 100px;
+}
+
+.fc-daygrid-day-number {
+  position: relative;
+}
+
+.fc-daygrid-event {
+  margin-bottom: 5px;
+  padding: 4px 6px;
+  font-size: 0.4em;
+}
+
+.fc-daygrid-event.fc-v-event {
+  margin-top: 2px;
+}
+
+.fc-daygrid-event-dot {
+  background-color: white !important;
+}
+
+.fc-event:hover {
+  background-color: #0e3d85 !important;
+  cursor: pointer;
+  transform: scale(1.02);
+  transition: 0.2s ease-in-out;
+}
+
+/* MODAL GENERAL */
 .modal {
   display: none;
   position: fixed;
-  z-index: 1000; /* Asegura que el modal esté sobre todo */
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%); /* Centrado en la pantalla */
-  width: 500px;  /* Ajustar el tamaño */
-  max-width: 90%; /* Que ocupe el 90% del ancho de la pantalla */
-  background-color: rgba(0, 0, 0, 0.1); /* Fondo semitransparente */
-  border-radius: 10px;  /* Bordes redondeados */
-  padding: 2px;
-
+  z-index: 1100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
   background-color: #fff;
+  margin: 10% auto;
   padding: 20px;
+  border: 1px solid #888;
+  width: 400px;
+  max-width: 90%;
   border-radius: 10px;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  position: relative;
 }
 
-h2 {
-  font-size: 1.5em;
-  color: #333;
-}
-
-p {
-  font-size: 1em;
-  color: #555;
-  margin: 10px 0;
-}
-
-strong {
-  color: #333;
-}
-
-#eventEnlace {
-  color: #4CAF50; /* Color verde */
-  text-decoration: none;
-  font-weight: bold;
-}
-
-#eventEnlace:hover {
-  text-decoration: underline;
-}
-
-/* Botón de cerrar */
-.close {
+/* Botones de cierre */
+.close, .close-error {
+  color: #aaa;
   position: absolute;
   top: 10px;
-  right: 10px;
-  font-size: 1.5em;
-  color: #333;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
   cursor: pointer;
-  padding: 5px;
 }
 
-.close:hover {
-  color: #f44336; /* Rojo en hover */
+.close:hover,
+.close-error:hover {
+  color: #000;
 }
 
-/* Animación de fade-in */
-.modal {
-  display: none;
-  animation: fadeIn 0.3s ease-out;
+/* Modal de error específico */
+#errorModal .modal-content {
+  background-color: #ffe5e5;
+  border: 1px solid #ff0000;
 }
 
+#errorModal h2 {
+  color: #d8000c;
+}
+
+#errorModal p {
+  color: #d8000c;
+}
+
+/* Animación fade-in */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  animation: fadeIn 0.3s ease-out;
 }

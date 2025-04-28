@@ -14,7 +14,7 @@
     <div class="formulario">
       
       <h2>Agregar Actividad</h2>
-<form action="api/guardar_evento.php" method="POST">
+<form id="actividadForm">
   
   <label>Asunto de la actividad:</label>
   <input type="text" name="asunto_actividad" required>
@@ -61,6 +61,17 @@
     <p><strong>Enlace virtual:</strong> <a href="#" id="eventEnlace" target="_blank">Ir al enlace</a></p>
   </div>
 </div>
+
+<!-- Modal para error de duplicado -->
+<div id="errorModal" class="modal">
+  <div class="modal-content">
+    <span class="close-error">&times;</span>
+    <h2>Actividad Duplicada!</h2>
+    <p>Ya existe una actividad registrado en ese horario, seleccione otro horario.</p>
+  </div>
+</div>
+
+
 
 
 
