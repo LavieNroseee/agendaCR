@@ -1,11 +1,12 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+
+// Verifica que haya sesión activa y que el usuario sea "admin"
+if (!isset($_SESSION['user_id']) || $_SESSION['username'] !== 'admin') {
+    header("Location: index.php"); // Redirige si no es admin
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>

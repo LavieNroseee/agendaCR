@@ -14,7 +14,7 @@ CREATE TABLE `actividades` (
   `lugar` varchar(255) DEFAULT NULL,
   `descripcion` text,
   `enlace_virtual` varchar(255) DEFAULT NULL,
-  `creado_por` VARCHAR(50) NOT NULL DEFAULT 'desconocido' -- Nuevo campo
+  `creado_por` VARCHAR(50) NOT NULL DEFAULT 'desconocido'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

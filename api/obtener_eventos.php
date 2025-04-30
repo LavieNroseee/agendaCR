@@ -1,7 +1,7 @@
 <?php
 require 'db.php';
 
-$sql = "SELECT id, asunto_actividad, convoca, participantes, hora, lugar, descripcion, enlace_virtual, creado_por FROM actividades";
+$sql = "SELECT id, asunto_actividad, convoca, participantes, hora_inicio, hora_fin, lugar, descripcion, enlace_virtual, creado_por FROM actividades";
 $stmt = $conexion->query($sql);
 $eventos = [];
 
@@ -19,7 +19,8 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $eventos[] = [
         'id' => $fila['id'],
         'title' => $fila['asunto_actividad'],
-        'start' => $fila['hora'],
+        'start' => $fila['hora_inicio'],
+        'end' => $fila['hora_fin'],
         'color' => $color,
         'className' => $class,
         'extendedProps' => [

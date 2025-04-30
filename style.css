@@ -301,3 +301,19 @@ strong {
   color: #007BFF;
 }
 
+footer.footer p {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #0d3a85; /* Establecer el color del texto */
+}
+
+footer.footer i {
+  color: #0d3a85; /* Color del icono (puedes cambiar el rojo si quieres otro color) */
+}
+
+footer.footer p {
+  margin: 0;
+}
+
