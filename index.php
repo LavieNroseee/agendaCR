@@ -101,7 +101,7 @@ $usuario_actual = $_SESSION['username'] ?? 'Invitado';
 
       <p><strong>Lugar:</strong> <span id="eventLugar"></span></p>
       <p><strong>Descripcion:</strong> <span id="eventDescripcion"></span></p>
-      <p><strong>Creado por:</strong> <span id="eventcreado_por"></span></p>
+      <p><strong>Registrado por:</strong> <span id="eventcreado_por"></span></p>
       <p><strong>Enlace virtual:</strong> <a href="#" id="eventEnlace" target="_blank">Ir al enlace</a></p>
 
 
@@ -111,7 +111,7 @@ $usuario_actual = $_SESSION['username'] ?? 'Invitado';
   <div id="errorModal" class="modal">
     <div class="modal-content">
       <span class="close-error">&times;</span>
-      <h2>Actividad Duplicada!</h2>
+      <h2>Horario ocupado!</h2>
       <p>Ya existe una actividad registrada en ese horario.</p>
       <p id="errorConflictInfo" style="color: #d8000c; font-weight: bold;"></p>
       <p>Por favor, seleccione otro horario.</p>
