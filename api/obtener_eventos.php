@@ -1,29 +1,34 @@
 <?php
 require 'db.php';
 
-$sql = "SELECT id, asunto_actividad, convoca, participantes, hora, lugar, descripcion, enlace_virtual FROM actividades";
+$sql = "SELECT id, asunto_actividad, convoca, participantes, hora, lugar, descripcion, enlace_virtual, creado_por FROM actividades";
 $stmt = $conexion->query($sql);
 $eventos = [];
 
-// Función para generar un color aleatorio
-function generarColorAleatorio() {
-    $colores = ['#FFB6C1', '#87CEFA', '#90EE90', '#FFD700', '#FFA07A', '#DDA0DD', '#00CED1'];
-    return $colores[array_rand($colores)];
-}
-
 while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $color = '#ffffff'; // Color por defecto
+    $class = 'default'; // Clase por defecto
+
+    // Asignar clases personalizadas según el usuario creador
+    if ($fila['creado_por'] === 'admin') {
+        $class = 'admin';
+    } elseif ($fila['creado_por'] === 'drtc') {
+        $class = 'drtc';
+    }
+
     $eventos[] = [
         'id' => $fila['id'],
         'title' => $fila['asunto_actividad'],
         'start' => $fila['hora'],
-        
-        'color' => generarColorAleatorio(), // 🎨 Color aleatorio
+        'color' => $color,
+        'className' => $class,
         'extendedProps' => [
             'convoca' => $fila['convoca'],
             'participantes' => $fila['participantes'],
             'lugar' => $fila['lugar'],
             'descripcion' => $fila['descripcion'],
-            'enlace_virtual' => $fila['enlace_virtual']
+            'enlace_virtual' => $fila['enlace_virtual'],
+            'creado_por' => $fila['creado_por'] // ✅ Incluido para el modal
         ]
     ];
 }

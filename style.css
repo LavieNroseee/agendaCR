@@ -56,7 +56,17 @@ strong {
   gap: 10px;
   max-width: 1500px;
   margin: auto;
-  padding: 50px;
+  padding: 0px 50px 50px 50px;
+}
+
+.contenedor-2 {
+  display: flex;
+  justify-content: right;
+  align-items: first baseline;
+  gap: 10px;
+  max-width: 1500px;
+  margin: auto;
+  padding: 50px 50px 0px 50px;
 }
 
 /* FORMULARIO */
@@ -138,8 +148,31 @@ strong {
   background-color: #1a252f;
 }
 
-.fc-event {
-  background-color: #1250AC !important;
+/* Clases para el color de fondo */
+.fc-event.admin {
+  background-color: #0e3d85 !important; /* verde */
+  color: white !important; /* texto blanco */
+  border: none !important;
+  border-radius: 5px !important;
+  padding: 6px 8px !important;
+  font-size: 5px !important;
+  font-weight: 200 !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.fc-event.drtc {
+  background-color: #28a745 !important; /* rojo */
+  color: white !important; /* texto blanco */
+  border: none !important;
+  border-radius: 5px !important;
+  padding: 6px 8px !important;
+  font-size: 5px !important;
+  font-weight: 200 !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.fc-event.default {
+  background-color: #999 !important; /* gris como valor por defecto */
   color: white !important;
   border: none !important;
   border-radius: 5px !important;
@@ -175,10 +208,10 @@ strong {
 
 .fc-daygrid-event-dot {
   background-color: white !important;
+  
 }
 
 .fc-event:hover {
-  background-color: #0e3d85 !important;
   cursor: pointer;
   transform: scale(1.02);
   transition: 0.2s ease-in-out;
@@ -248,3 +281,23 @@ strong {
 .modal {
   animation: fadeIn 0.3s ease-out;
 }
+
+.iconos {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 5px;  /* Reducir el margen superior si es necesario */
+  margin-bottom: 0; /* Eliminar el margen inferior */
+}
+
+.iconos i {
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.iconos i:hover {
+  color: #007BFF;
+}
+

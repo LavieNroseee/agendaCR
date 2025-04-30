@@ -18,8 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('eventHora').innerText = new Date(event.start).toLocaleString();  
       document.getElementById('eventLugar').innerText = event.extendedProps.lugar || 'No especificado'; 
       document.getElementById('eventDescripcion').innerText = event.extendedProps.descripcion || "No especificado";
+      document.getElementById('eventcreado_por').innerText = event.extendedProps.creado_por || 'Desconocido';
       document.getElementById('eventEnlace').href = event.extendedProps.enlace_virtual || '#';  
-      document.getElementById('eventEnlace').innerText = event.extendedProps.enlace_virtual ? 'Ir al enlace' : 'No disponible'; 
+      document.getElementById('eventEnlace').innerText = event.extendedProps.enlace_virtual ? 'Ir al enlace' : 'No disponible';
+      
+      
+
 
       const modal = document.getElementById('eventModal');
       modal.style.display = "block";  
