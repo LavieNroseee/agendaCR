@@ -11,10 +11,13 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
     // Asignar clases personalizadas según el usuario creador
     if ($fila['creado_por'] === 'admin') {
-        $class = 'admin';
+        $class = 'admin'; // clase nueva para color rojo
+    } elseif ($fila['creado_por'] === 'consejo') {
+        $class = 'consejo';
     } elseif ($fila['creado_por'] === 'drtc') {
         $class = 'drtc';
     }
+    
 
     $eventos[] = [
         'id' => $fila['id'],

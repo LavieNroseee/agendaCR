@@ -96,9 +96,15 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 data-fin="<?php echo (new DateTime($actividad['hora_fin']))->format('H:i'); ?>"
                 data-lugar="<?php echo htmlspecialchars($actividad['lugar']); ?>">Editar
             </button>
+            <button class="btn-eliminar"
+                onclick="abrirModalEliminar(<?php echo $actividad['id']; ?>)">
+                Eliminar
+            </button>
 
             
-              <a href="eliminar_evento.php?id=<?php echo $actividad['id']; ?>">Eliminar</a>
+             
+
+              
             </td>
           </tr>
         <?php endforeach; ?>
@@ -106,17 +112,34 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </table>
   </div>
 
+  <div id="modalEliminar" class="modal-eliminar">
+  <div class="modal-content-eliminar">
+    <h3>¿Estás seguro de que deseas eliminar este evento?</h3>
+    <form id="formEliminar" method="POST" action="api/eliminar_evento.php">
+      <input type="hidden" name="id" id="eliminar-id">
+      <div class="btn-eliminar-container">
+        <button type="button" class="btn-cancelar" onclick="cerrarModalEliminar()">Cancelar</button>
+        <button type="submit" class="btn-confirmar">Eliminar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
 </body>
 </html>
 
 <div id="modal-editar" class="modal-editar">
   <div class="modal-content-editar">
-    <span class="close-editar">&times;</span>
+  <span class="close-editar"></span>
     <form id="formEditar" method="POST" action="api/editar_evento.php">
       <input type="hidden" name="id" id="edit-id">
       
+
+            
       <label class="label-editar">Asunto:</label>
-      <input type="text" name="asunto" id="edit-asunto" required>
+      <input type="text" name="asunto" id="edit-asunto" required><br> 
 
       <label class="label-editar">Convoca:</label>
       <input type="text" name="convoca" id="edit-convoca" required><br> 
@@ -222,6 +245,17 @@ window.onload = function() {
     }
 };
 
+</script>
+
+<script>
+function abrirModalEliminar(id) {
+  document.getElementById('eliminar-id').value = id;
+  document.getElementById('modalEliminar').style.display = 'flex';
+}
+
+function cerrarModalEliminar() {
+  document.getElementById('modalEliminar').style.display = 'none';
+}
 </script>
 
 <!-- El resto de tu código para mostrar las actividades -->
