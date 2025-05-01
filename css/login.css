@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif !important;
+    background: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login-container {
+ 
+    text-align: center;
+    z-index: 1000;
+    width: 100%;
+    max-width: 300px;
+}
+
+
+input[type="text"], input[type="password"] {
+    font-family: 'Montserrat', sans-serif !important;
+    width: 100%;
+    padding: 10px 5px;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    background: transparent;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: center;
+    color: #444;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-bottom: 1px solid #7b61ff; /* Puedes cambiar o quitar esto si no deseas resaltado */
+}
+
+
+input::placeholder {
+    color: #aaa;
+}
+
+.login-button {
+    font-family: 'Montserrat', sans-serif !important;
+    width: 100%;
+    padding: 12px;
+    background-color: #0d3a85;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.footer-illustration {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.footer-illustration img {
+    width: 100%;
+
+}

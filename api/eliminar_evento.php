@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['actividad_eliminada'] = true;
 
         // Redirige a eventos.php
-        header("Location: ../eventos.php");
+        header("Location: ../eventos");
         exit;
     } catch (PDOException $e) {
         die("Error al eliminar el evento: " . $e->getMessage());

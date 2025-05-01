@@ -20,17 +20,14 @@ $stmt->execute();
 // Obtener los resultados
 $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Actividades</title>
-  
-  <link rel="stylesheet" href="dashboard.css">
-  <link rel="stylesheet" href="eventos.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></script>
-  
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/eventos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
 </head>
 <body>
 
@@ -38,10 +35,10 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <div class="sidebar">
     <h2><i class="fas fa-chart-pie"></i> Dashboard</h2>
     <h4>Bienvenido, <?php echo htmlspecialchars($_SESSION['username']); ?> (<?php echo $_SESSION['sede']; ?>)</h4>
-    <a href="dashboard.php"><i class="fas fa-chart-line"></i> Estadísticas</a>
-    <a href="eventos.php"><i class="fas fa-calendar-alt"></i> Eventos/Actividades</a>
-    <a href="index.php"><i class="fas fa-calendar-alt"></i> Calendario</a>
-    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+    <a href="dashboard"><i class="fas fa-chart-line"></i> Estadísticas</a>
+    <a href="eventos"><i class="fas fa-calendar-alt"></i> Eventos/Actividades</a>
+    <a href="index"><i class="fas fa-calendar-alt"></i> Calendario</a>
+    <a href="logout"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
   </div>
 
   <!-- Contenido -->
@@ -62,7 +59,7 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </thead>
       <tbody>
         <?php foreach ($actividades as $actividad): ?>
-          <tr>
+          <tr style="text-align:center">
             <td><?php echo htmlspecialchars($actividad['asunto_actividad']); ?></td>
             <td><?php echo htmlspecialchars($actividad['convoca']); ?></td>
             <td>
@@ -115,7 +112,7 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <div id="modalEliminar" class="modal-eliminar">
   <div class="modal-content-eliminar">
     <h3>¿Estás seguro de que deseas eliminar este evento?</h3>
-    <form id="formEliminar" method="POST" action="api/eliminar_evento.php">
+    <form id="formEliminar" method="POST" action="api/eliminar_evento">
       <input type="hidden" name="id" id="eliminar-id">
       <div class="btn-eliminar-container">
         <button type="button" class="btn-cancelar" onclick="cerrarModalEliminar()">Cancelar</button>
@@ -133,7 +130,7 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div id="modal-editar" class="modal-editar">
   <div class="modal-content-editar">
   <span class="close-editar"></span>
-    <form id="formEditar" method="POST" action="api/editar_evento.php">
+    <form id="formEditar" method="POST" action="api/editar_evento">
       <input type="hidden" name="id" id="edit-id">
       
 
@@ -240,7 +237,7 @@ window.onload = function() {
 
         // Redirigir a eventos.php cuando el usuario haga clic en "Aceptar"
         acceptButton.onclick = function() {
-            window.location.href = "eventos.php";
+            window.location.href = "eventos";
         }
     }
 };

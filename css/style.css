@@ -3,13 +3,12 @@ body {
   font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f9f9f9;
   margin: 0;
-  padding: 20px;
+  padding: 10px;
   color: #333;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 10px;
   color: #1250AC;
 }
 
@@ -64,7 +63,7 @@ strong {
   justify-content: right;
   align-items: first baseline;
   gap: 10px;
-  max-width: 1500px;
+  max-width: 1450px;
   margin: auto;
   padding: 50px 50px 0px 50px;
 }
@@ -97,6 +96,15 @@ strong {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+
+.formulario [type="text"]{
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.formulario [type="textarea"]{
+  font-family: 'Montserrat', sans-serif !important;
+}
+
 
 .formulario button {
   margin-top: 15px;

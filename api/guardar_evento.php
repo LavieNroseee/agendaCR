@@ -1,6 +1,11 @@
 <?php
 require 'db.php';
 session_start();
+if (!isset($_SESSION['username'])) {
+    http_response_code(403); // Acceso prohibido
+    exit("Debes iniciar sesión para registrar un evento.");
+}
+
 $creado_por = $_SESSION['username'] ?? 'desconocido';
 
 // Capturar los datos del formulario

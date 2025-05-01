@@ -27,7 +27,7 @@ $actividadesPorSede = $stmt3->fetchAll(PDO::FETCH_ASSOC);
   <title>Dashboard de Actividades</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
 
@@ -35,10 +35,10 @@ $actividadesPorSede = $stmt3->fetchAll(PDO::FETCH_ASSOC);
   <div class="sidebar">
     <h2><i class="fas fa-chart-pie"></i> Dashboard</h2>
     <h4>Bienvenido, <?php echo htmlspecialchars($_SESSION['username']); ?> (<?php echo $_SESSION['sede']; ?>)</h4>
-    <a href="dashboard.php"><i class="fas fa-chart-line"></i> Estadísticas</a>
-    <a href="eventos.php"><i class="fas fa-calendar-alt"></i> Eventos/Actividades</a>
-    <a href="index.php"><i class="fas fa-calendar-alt"></i> Calendario</a>
-    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+    <a href="dashboard"><i class="fas fa-chart-line"></i> Estadísticas</a>
+    <a href="eventos"><i class="fas fa-calendar-alt"></i> Eventos/Actividades</a>
+    <a href="index"><i class="fas fa-calendar-alt"></i> Calendario</a>
+    <a href="logout"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
   </div>
 
   <!-- Contenido Principal -->

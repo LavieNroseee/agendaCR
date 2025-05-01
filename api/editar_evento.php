@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['actividad_actualizada'] = true;
 
         // Redirigir a la página de eventos (sin parámetros en la URL)
-        header("Location: ../eventos.php");
+        header("Location: ../eventos");
         exit;
     } catch (PDOException $e) {
         die("Error al actualizar el evento: " . $e->getMessage());

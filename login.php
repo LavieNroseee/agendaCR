@@ -5,23 +5,32 @@ if (isset($_SESSION['user_id'])) {
     exit;
 }
 ?>
-
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/login.css">
 </head>
-<body>
-    <h2>Iniciar sesión</h2>
-    <?php if (isset($_GET['error'])): ?>
-        <p style="color: red;">Credenciales inválidas</p>
-    <?php endif; ?>
 
-    <form method="POST" action="api/login_handler.php">
-        <input type="text" name="username" placeholder="Usuario" required><br><br>
-        <input type="password" name="password" placeholder="Contraseña" required><br><br>
-        <button type="submit">Ingresar</button>
-    </form>
+<body>
+
+    <div class="login-container">
+
+        <?php if (isset($_GET['error'])): ?>
+            <div class="error-message">Credenciales inválidas</div>
+        <?php endif; ?>
+
+        <form method="POST" action="api/login_handler.php">
+            <input type="text" name="username" placeholder="Usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit" class="login-button">Iniciar Sesion</button>
+        </form>
+    </div>
+
+    <div class="footer-illustration">
+        <img src="images/footer3.webp" alt="Decoración inferior"> <!-- Cambia por tu imagen -->
+    </div>
+
 </body>
 </html>

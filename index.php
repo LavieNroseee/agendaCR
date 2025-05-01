@@ -2,6 +2,7 @@
 session_start();
 $usuario_actual = $_SESSION['username'] ?? 'Invitado';
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,38 +10,45 @@ $usuario_actual = $_SESSION['username'] ?? 'Invitado';
   <title>Agenda de Actividades</title>
   <link rel="stylesheet" href="fullcalendar/main.min.css">
   <!-- Esto carga Font Awesome 6 (última versión gratuita) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
 
 
+<h1>Agenda del Consejo Regional</h1>
+<div class="contenedor-2">
+  <?php if (isset($_SESSION['username'])): ?>
+    <span style="color:#1250AC;">usuario: <strong style="color:#1250AC;"><?php echo htmlspecialchars($usuario_actual); ?></strong></span>
+    <div class="iconos">
+      <?php if ($usuario_actual === 'admin'): ?>
+        <i class="fas fa-lock" style="color:#1250AC;"></i>
+        <a href="dashboard" title="Ir al Dashboard">
+          <i class="fas fa-home" style="color:#1250AC;"></i>
+        </a>
+         
 
-
-  <h1>AGENDA DEL CONSEJO REGIONAL - HUANUCO 2025</h1>
-  <div class="contenedor-2">  
-  <span>Usuario: <strong><?php echo htmlspecialchars($usuario_actual); ?></strong></span>
-  <div class="iconos">
-    <?php if ($usuario_actual === 'admin'): ?>
-      <a href="dashboard.php" title="Ir al Dashboard">
-        <i class="fas fa-chart-line"></i>
+      <?php endif; ?>
+      <i class="fas fa-lock" style="color:#1250AC;"></i>
+      <a href="logout" title="Cerrar sesión">
+        <i class="fas fa-sign-out-alt" style="color:#1250AC;"></i>
       </a>
-    <?php endif; ?>
-    <a href="logout.php" title="Cerrar sesión">
-      <i class="fas fa-sign-out-alt"></i>
+    </div>
+  <?php else: ?>
+    <a href="login" style="color:#1250AC; text-decoration: none;">
+      Iniciar sesión <i class="fas fa-lock-open" style="margin-left: 5px;"></i>
     </a>
-  </div>
+  <?php endif; ?>
 </div>
 
 
-  <div class="contenedor">
-    
 
+<div class="contenedor">
     <div class="formulario">
-  <h2>Agregar Actividad</h2>
-  <form id="actividadForm">
+    <h2>Agregar Actividad</h2>
+    <form id="actividadForm">
     <!-- Asunto de la actividad -->
     <label>Asunto de la actividad:</label>
     <input type="text" name="asunto_actividad" required>
@@ -67,7 +75,7 @@ $usuario_actual = $_SESSION['username'] ?? 'Invitado';
 
     <!-- Descripción -->
     <label>Descripción:</label>
-    <textarea name="descripcion" required></textarea><br>
+    <textarea type="text" name="descripcion" required></textarea><br>
 
     <!-- Enlace virtual (opcional) -->
     <label>Enlace virtual (opcional):</label>
@@ -81,9 +89,7 @@ $usuario_actual = $_SESSION['username'] ?? 'Invitado';
 
     <div id="calendar"></div>
     
-    
-
-
+  
   </div>
 
   <!-- Modales -->
@@ -124,9 +130,25 @@ $usuario_actual = $_SESSION['username'] ?? 'Invitado';
   <script src="script.js"></script>
 
   <footer class="footer">
-  <p>Hecho con <i class="fas fa-heart"></i> por La vie en rose</p>
+  <p>Hecho con <i class="fas fa-heart"></i> por la vie en rose</p>
 </footer>
 
+<script>
+  document.getElementById("actividadForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita que el formulario se envíe de inmediato
+
+    const isLoggedIn = <?php echo isset($_SESSION['username']) ? 'true' : 'false'; ?>;
+
+    if (!isLoggedIn) {
+      alert("Debes iniciar sesión para registrar una actividad.");
+      window.location.href = "login.php";
+      return; // Salimos del evento, no enviamos nada
+    }
+
+    // Si está logueado, ahora sí enviamos el formulario manualmente
+    this.submit();
+  });
+</script>
 
 
 </body>

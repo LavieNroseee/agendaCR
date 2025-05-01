@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /agendacr/
+
+# Redirigir index.php a la raíz solo si no es ya la raíz
+RewriteCond %{REQUEST_URI} ^/agendacr/index\.php$
+RewriteRule ^index\.php$ /agendacr/ [R=301,L]
+
+# Ocultar la extensión .php para cualquier otra página (ejemplo: dashboard, eventos)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ $1.php [L]
