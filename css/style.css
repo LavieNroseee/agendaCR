@@ -321,7 +321,7 @@ strong {
 
 footer.footer p {
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
   margin-top: 20px;
   font-size: 16px;
   color: #0d3a85; /* Establecer el color del texto */
@@ -333,5 +333,6 @@ footer.footer i {
 
 footer.footer p {
   margin: 0;
+  text-align: right;
 }
 

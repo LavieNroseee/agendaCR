@@ -288,15 +288,15 @@ textarea {
 
 .modal-success {
   display: none; 
-  position: fixed; /* Asegura que el modal se posicione de forma fija en la pantalla */
-  z-index: 1; /* Asegura que el modal esté sobre otros elementos */
+  position: fixed; 
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Hace que ocupe todo el ancho de la ventana */
-  height: 100%; /* Hace que ocupe todo el alto de la ventana */
-  background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro semi-transparente */
-  padding-top: 100px; /* Espacio superior para asegurar que se vea bien en pantallas pequeñas */
-  box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones del modal */
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.4); 
+  padding-top: 100px; 
+  box-sizing: border-box; 
 }
 
 .modal-success h2{
@@ -314,6 +314,7 @@ font-weight: 400;
   width: 50%; /* Ajusta el tamaño del modal a la mitad del ancho de la ventana */
   max-width: 600px; /* Limita el ancho máximo del modal */
   box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones */
+  border-radius: 10px 10px 10px 10px !important;
 }
 
 .aceptar-container {

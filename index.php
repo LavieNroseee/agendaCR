@@ -24,7 +24,7 @@ $usuario_actual = $_SESSION['username'] ?? 'Invitado';
     <span style="color:#1250AC;">usuario: <strong style="color:#1250AC;"><?php echo htmlspecialchars($usuario_actual); ?></strong></span>
     <div class="iconos">
       <?php if ($usuario_actual === 'admin'): ?>
-        <i class="fas fa-lock" style="color:#1250AC;"></i>
+        
         <a href="dashboard" title="Ir al Dashboard">
           <i class="fas fa-home" style="color:#1250AC;"></i>
         </a>
@@ -132,24 +132,6 @@ $usuario_actual = $_SESSION['username'] ?? 'Invitado';
   <footer class="footer">
   <p>Hecho con <i class="fas fa-heart"></i> por la vie en rose</p>
 </footer>
-
-<script>
-  document.getElementById("actividadForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita que el formulario se envíe de inmediato
-
-    const isLoggedIn = <?php echo isset($_SESSION['username']) ? 'true' : 'false'; ?>;
-
-    if (!isLoggedIn) {
-      alert("Debes iniciar sesión para registrar una actividad.");
-      window.location.href = "login.php";
-      return; // Salimos del evento, no enviamos nada
-    }
-
-    // Si está logueado, ahora sí enviamos el formulario manualmente
-    this.submit();
-  });
-</script>
-
 
 </body>
 </html>
