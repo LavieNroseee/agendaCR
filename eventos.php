@@ -26,8 +26,11 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <meta charset="UTF-8">
   <title>Actividades</title>
   <link rel="stylesheet" href="css/dashboard.css">
-  <link rel="stylesheet" href="css/eventos.css">
+  
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
+  <link rel="stylesheet" href="css/eventos.css">
+  <!-- DataTables CSS -->
 </head>
 <body>
 
@@ -45,9 +48,9 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <div class="main-content">
     <h2 style="font-weight:bold;color:#0d3a85">Listado de Eventos</h2>
 
-    <table id="eventTable">
+    <table id="eventTable" >
       <thead>
-        <tr style="text-align:center">
+        <tr>
           <th>Asunto</th>
           <th>Convoca</th>
           <th>Dia</th>
@@ -59,7 +62,7 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </thead>
       <tbody>
         <?php foreach ($actividades as $actividad): ?>
-          <tr style="text-align:center">
+          <tr>
             <td><?php echo htmlspecialchars($actividad['asunto_actividad']); ?></td>
             <td><?php echo htmlspecialchars($actividad['convoca']); ?></td>
             <td>
@@ -121,6 +124,10 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </form>
   </div>
 </div>
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+
 
 
 
@@ -257,3 +264,15 @@ function cerrarModalEliminar() {
 
 <!-- El resto de tu código para mostrar las actividades -->
 
+<script>
+$(document).ready(function() {
+  $('#eventTable').DataTable({
+    language: {
+      url: 'js/datatables.spanish.json'
+    },
+    pageLength: 5
+  });
+});
+
+
+</script>

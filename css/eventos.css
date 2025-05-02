@@ -384,3 +384,16 @@ font-weight: 400;
   background-color: #e53935;
   color: white;
 }
+
+
+/*TABLA ESTILOS*/
+/* Selector "Mostrar registros" */
+div.dt-container .dt-search input {
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #fff;
+  color: inherit;
+  margin-left: 3px;
+}
+
