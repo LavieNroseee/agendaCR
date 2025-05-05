@@ -2,8 +2,8 @@
 require 'db.php';
 
 $usuarios = [
-    ['username' => 'admin', 'password' => 'admin123', 'rol' => 'admin', 'sede' => 'CR'],
-    ['username' => 'consejo', 'password' => 'consejo123', 'rol' => 'normal', 'sede' => 'CR'],
+    ['username' => 'admin', 'password' => '75072119', 'rol' => 'admin', 'sede' => 'CR'],
+    ['username' => 'consejo', 'password' => 'consejo2025', 'rol' => 'normal', 'sede' => 'CR'],
     ['username' => 'drtc', 'password' => 'drtc123', 'rol' => 'normal', 'sede' => 'DRTC'],
 ];
 

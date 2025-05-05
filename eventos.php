@@ -57,6 +57,7 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <th>Inicia</th>
           <th>Finaliza</th>
           <th>Lugar</th>
+          <th>Creado por</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -85,26 +86,26 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </td>
 
             <td><?php echo htmlspecialchars($actividad['lugar']); ?></td>
+            <td><?php echo htmlspecialchars($actividad['creado_por']); ?></td>
             <td>
                 
             <button class="btn-editar" 
-                data-id="<?php echo $actividad['id']; ?>"
-                data-asunto="<?php echo htmlspecialchars($actividad['asunto_actividad']); ?>"
-                data-convoca="<?php echo htmlspecialchars($actividad['convoca']); ?>"
-                data-fecha="<?php echo (new DateTime($actividad['hora_inicio']))->format('Y-m-d'); ?>"
-                data-inicio="<?php echo (new DateTime($actividad['hora_inicio']))->format('H:i'); ?>"
-                data-fin="<?php echo (new DateTime($actividad['hora_fin']))->format('H:i'); ?>"
-                data-lugar="<?php echo htmlspecialchars($actividad['lugar']); ?>">Editar
-            </button>
+  data-id="<?php echo $actividad['id']; ?>"
+  data-asunto="<?php echo htmlspecialchars($actividad['asunto_actividad']); ?>"
+  data-convoca="<?php echo htmlspecialchars($actividad['convoca']); ?>"
+  data-fecha="<?php echo (new DateTime($actividad['hora_inicio']))->format('Y-m-d'); ?>"
+  data-fecha-fin="<?php echo (new DateTime($actividad['hora_fin']))->format('Y-m-d'); ?>"
+  data-inicio="<?php echo (new DateTime($actividad['hora_inicio']))->format('H:i'); ?>"
+  data-fin="<?php echo (new DateTime($actividad['hora_fin']))->format('H:i'); ?>"
+  data-lugar="<?php echo htmlspecialchars($actividad['lugar']); ?>">
+  Editar
+</button>
+
             <button class="btn-eliminar"
                 onclick="abrirModalEliminar(<?php echo $actividad['id']; ?>)">
                 Eliminar
             </button>
-
-            
-             
-
-              
+ 
             </td>
           </tr>
         <?php endforeach; ?>
@@ -150,10 +151,14 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="hora-container">
 
-  <div class="hora-group">
-    <label class="label-editar" for="edit-inicio">Fecha:</label>
-    <input type="date" name="fecha" id="edit-fecha" required readonly>
-  </div>
+<div class="hora-group">
+  <label class="label-editar" for="edit-fecha">Fecha Inicio:</label>
+  <input type="date" name="fecha" id="edit-fecha" required readonly>
+</div>
+<div class="hora-group">
+  <label class="label-editar" for="edit-fecha-fin">Fecha Fin:</label>
+  <input type="date" name="fecha_fin" id="edit-fecha-fin" required readonly>
+</div>
   <div class="hora-group">
     <label class="label-editar" for="edit-inicio">Hora Inicio:</label>
     <input type="time" name="hora_inicio" id="edit-inicio" required>
@@ -193,6 +198,8 @@ $actividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
       document.getElementById('edit-fecha').value = button.dataset.fecha;
       document.getElementById('edit-inicio').value = button.dataset.inicio;
       document.getElementById('edit-fin').value = button.dataset.fin;
+      document.getElementById('edit-fecha-fin').value = button.dataset.fechaFin;
+
       document.getElementById('edit-lugar').value = button.dataset.lugar;
       modal.style.display = 'block';
     });

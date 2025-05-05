@@ -11,36 +11,36 @@ $usuario_actual = $_SESSION['username'] ?? 'Invitado';
   <link rel="stylesheet" href="fullcalendar/main.min.css">
   <!-- Esto carga Font Awesome 6 (última versión gratuita) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/personalizado.css">
 
 </head>
 <body>
 
 
-<h1>Agenda del Consejo Regional</h1>
 <div class="contenedor-2">
-  <?php if (isset($_SESSION['username'])): ?>
-    <span style="color:#1250AC;">usuario: <strong style="color:#1250AC;"><?php echo htmlspecialchars($usuario_actual); ?></strong></span>
-    <div class="iconos">
-      <?php if ($usuario_actual === 'admin'): ?>
-        
-        <a href="dashboard" title="Ir al Dashboard">
-          <i class="fas fa-home" style="color:#1250AC;"></i>
-        </a>
-         
+  <h1 class="titulo-centrado">Agenda del Consejo Regional</h1>
 
-      <?php endif; ?>
-      <i class="fas fa-lock" style="color:#1250AC;"></i>
-      <a href="logout" title="Cerrar sesión">
-        <i class="fas fa-sign-out-alt" style="color:#1250AC;"></i>
+  <div class="bloque-derecha">
+    <?php if (isset($_SESSION['username'])): ?>
+      <span class="usuario">usuario <strong><?php echo htmlspecialchars($usuario_actual); ?></strong></span>
+      <div class="iconos">
+        <?php if ($usuario_actual === 'admin'): ?>
+          <a href="dashboard" title="Ir al Dashboard">
+            <i class="fas fa-home"></i>
+          </a>
+        <?php endif; ?>
+        <i class="fas fa-lock"></i>
+        <a href="logout" title="Cerrar sesión">
+          <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </div>
+    <?php else: ?>
+      <a href="login" class="login-link">
+        Iniciar sesión <i class="fas fa-lock-open"></i>
       </a>
-    </div>
-  <?php else: ?>
-    <a href="login" style="color:#1250AC; text-decoration: none;">
-      Iniciar sesión <i class="fas fa-lock-open" style="margin-left: 5px;"></i>
-    </a>
-  <?php endif; ?>
+    <?php endif; ?>
+  </div>
 </div>
 
 
@@ -82,14 +82,11 @@ $usuario_actual = $_SESSION['username'] ?? 'Invitado';
     <input type="url" name="enlace_virtual" placeholder="https://...">
 
     <!-- Botón para registrar -->
-    <button type="submit">Registrar</button>
+    <button type="submit" style="font-family: Montserrat">Registrar</button>
   </form>
 </div>
 
-
     <div id="calendar"></div>
-    
-  
   </div>
 
   <!-- Modales -->
@@ -132,6 +129,8 @@ $usuario_actual = $_SESSION['username'] ?? 'Invitado';
   <footer class="footer">
   <p>Hecho con <i class="fas fa-heart"></i> por la vie en rose</p>
 </footer>
+
+
 
 </body>
 </html>

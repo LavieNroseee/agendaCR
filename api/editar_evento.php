@@ -15,33 +15,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
     $asunto = $_POST['asunto'];
     $convoca = $_POST['convoca'];
-    $fecha = $_POST['fecha'];
+    $fecha = $_POST['fecha'];               // Fecha de inicio
+    $fecha_fin = $_POST['fecha_fin'];       // Nueva: Fecha de fin
     $hora_inicio = $_POST['hora_inicio'];
     $hora_fin = $_POST['hora_fin'];
     $lugar = $_POST['lugar'];
 
     // Validación básica (puedes agregar más validaciones si lo necesitas)
-    if (empty($asunto) || empty($convoca) || empty($fecha) || empty($hora_inicio) || empty($hora_fin)) {
+    if (
+        empty($asunto) || empty($convoca) || empty($fecha) || empty($fecha_fin) ||
+        empty($hora_inicio) || empty($hora_fin) || empty($lugar)
+    ) {
         die("Todos los campos son requeridos.");
     }
 
-    // Convertir la fecha y horas en formato datetime
+    // Convertir fecha + hora en formato datetime
     $hora_inicio = $fecha . ' ' . $hora_inicio;
-    $hora_fin = $fecha . ' ' . $hora_fin;
+    $hora_fin = $fecha_fin . ' ' . $hora_fin;
 
     try {
         // Consulta SQL para actualizar la actividad
         $sql = "UPDATE actividades SET
-                asunto_actividad = :asunto,
-                convoca = :convoca,
-                hora_inicio = :hora_inicio,
-                hora_fin = :hora_fin,
-                lugar = :lugar
+                    asunto_actividad = :asunto,
+                    convoca = :convoca,
+                    hora_inicio = :hora_inicio,
+                    hora_fin = :hora_fin,
+                    lugar = :lugar
                 WHERE id = :id";
         
         // Preparar la consulta
         $stmt = $conexion->prepare($sql);
-        
+
         // Vincular los parámetros
         $stmt->bindParam(':asunto', $asunto);
         $stmt->bindParam(':convoca', $convoca);
@@ -49,14 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bindParam(':hora_fin', $hora_fin);
         $stmt->bindParam(':lugar', $lugar);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        
+
         // Ejecutar la consulta
         $stmt->execute();
 
         // Almacenar un valor de sesión para mostrar el modal
         $_SESSION['actividad_actualizada'] = true;
 
-        // Redirigir a la página de eventos (sin parámetros en la URL)
+        // Redirigir a la página de eventos
         header("Location: ../eventos");
         exit;
     } catch (PDOException $e) {

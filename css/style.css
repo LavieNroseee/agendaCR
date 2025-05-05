@@ -1,7 +1,7 @@
 /* ESTILOS GENERALES */
 body {
   font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #f3f6ff;
   margin: 0;
   padding: 10px;
   color: #333;
@@ -10,22 +10,25 @@ body {
 h1 {
   text-align: center;
   color: #1250AC;
+  font-weight: 400;
 }
 
 h2 {
   font-size: 1.5em;
-  color: #333;
+  color: #0e3d85 !important;
+  font-weight: 400;
 }
 
 a {
   display: block;
   text-align: center;
-  margin-bottom: 20px;
   color: #1250AC;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 15px;
 }
+
+
 
 p {
   font-size: 1em;
@@ -34,7 +37,7 @@ p {
 }
 
 strong {
-  color: #333;
+  color: #0e3d85 ;
 }
 
 #eventEnlace {
@@ -60,21 +63,55 @@ strong {
 
 .contenedor-2 {
   display: flex;
-  justify-content: right;
-  align-items: first baseline;
-  gap: 10px;
+  justify-content: flex-end; /* contenido principal a la derecha */
+  align-items: center;
   max-width: 1450px;
   margin: auto;
-  padding: 50px 50px 0px 50px;
+  padding: 20px 50px 30px 50px;
+  position: relative; /* necesario para centrar el h1 */
 }
+
+.titulo-centrado {
+  background-color: #FFF;
+  padding: 8px 12px;
+  border-radius: 8px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 35px;
+  font-weight: 500;
+}
+.usuario,
+.iconos,
+.login-link {
+  color: #1250AC;
+  margin-left: 10px;
+}
+
+.iconos i {
+  margin-left: 0;
+  color: #1250AC !important;
+}
+
+.bloque-derecha {
+  display: flex;
+  align-items: center;
+  background-color: #FFF; /* rojo claro, puedes cambiarlo */
+  padding: 8px 12px;
+  border-radius: 8px;
+  gap: 10px;
+  
+}
+
 
 /* FORMULARIO */
 .formulario {
   background-color: #ffffff;
   padding: 40px 40px 20px 20px;
-  border-radius: 12px;
+  border-radius: 5px;
   width: 30%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 .formulario h2 {
@@ -85,7 +122,9 @@ strong {
 .formulario label {
   display: block;
   margin-top: 10px;
-  font-weight: bold;
+  font-weight: 500;
+  color: #0e3d85;
+
 }
 
 .formulario input, 
@@ -93,7 +132,7 @@ strong {
   width: 100%;
   padding: 8px;
   margin-top: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid #D6E5EF !important;
   border-radius: 6px;
 }
 
@@ -121,14 +160,18 @@ strong {
 }
 
 /* CALENDARIO */
+.fc .fc-toolbar-title {
+  font-size: 1.5em;
+  margin: 0;
+}
 #calendar {
-  width: 65%;
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
   background-color: #fff;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 /* FULLCALENDAR */
@@ -136,7 +179,11 @@ strong {
   font-size: 9px;
   white-space: normal;
   line-height: 1.2;
+  font-weight: bold !important;
 }
+
+
+
 
 .fc .fc-button {
   background-color: #1250AC;
@@ -165,7 +212,7 @@ strong {
   padding: 6px 8px !important;
   font-size: 5px !important;
   font-weight: 200 !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
 }
 .fc-event.admin {
   background-color: #850e46 !important; /* verde */
@@ -174,8 +221,8 @@ strong {
   border-radius: 5px !important;
   padding: 6px 8px !important;
   font-size: 5px !important;
-  font-weight: 200 !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-weight: normal !important;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 .fc-event.drtc {
@@ -186,7 +233,7 @@ strong {
   padding: 6px 8px !important;
   font-size: 5px !important;
   font-weight: 200 !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 .fc-event.default {
@@ -201,10 +248,32 @@ strong {
 }
 
 .fc-daygrid-event-harness {
-  display: flex;
+  
   flex-direction: column;
   align-items: flex-start;
 }
+
+
+.fc .fc-col-header-cell {
+  background-color: #FAFCFD; /* o #FFFFFF si lo quieres completamente blanco */
+}
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border-right: 1px solid #D6E5EF;
+  border-bottom: 1px solid #D6E5EF;
+  border-left: none;
+  border-top: none;
+}
+
+/* Aplica solo el borde izquierdo y superior al contenedor */
+.fc .fc-scrollgrid {
+  border-left: 1px solid #D6E5EF;
+  border-top: 1px solid #D6E5EF;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
 
 .fc-daygrid-day {
   min-height: 100px;
@@ -219,15 +288,27 @@ strong {
   padding: 4px 6px;
   font-size: 0.4em;
 }
+.fc-daygrid-event::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 .fc-daygrid-event.fc-v-event {
   margin-top: 2px;
 }
 
 .fc-daygrid-event-dot {
-  background-color: white !important;
+  display: none !important;
   
 }
+
 
 .fc-event:hover {
   cursor: pointer;
@@ -259,6 +340,7 @@ strong {
   text-align: center;
   position: relative;
 }
+
 
 /* Botones de cierre */
 .close, .close-error {
@@ -333,6 +415,6 @@ footer.footer i {
 
 footer.footer p {
   margin: 0;
-  text-align: right;
+  text-align: center;
 }
 

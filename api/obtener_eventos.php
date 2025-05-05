@@ -26,13 +26,14 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
         'end' => $fila['hora_fin'],
         'color' => $color,
         'className' => $class,
+       
         'extendedProps' => [
             'convoca' => $fila['convoca'],
             'participantes' => $fila['participantes'],
             'lugar' => $fila['lugar'],
             'descripcion' => $fila['descripcion'],
             'enlace_virtual' => $fila['enlace_virtual'],
-            'creado_por' => $fila['creado_por'] // ✅ Incluido para el modal
+            'creado_por' => $fila['creado_por']
         ]
     ];
 }

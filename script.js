@@ -4,10 +4,27 @@ document.addEventListener('DOMContentLoaded', function () {
   const calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',   
     locale: 'es',                  
-    events: 'api/obtener_eventos.php',  
+    events: 'api/obtener_eventos.php', 
+    dayMaxEvents: true,
     displayEventTime: false,       
     fixedWeekCount: false,
-    showNonCurrentDates: false,    
+    showNonCurrentDates: false,   
+   
+  // Aquí sí dejamos el título para que FullCalendar lo genere
+  headerToolbar: {
+    right: 'today prev,next',
+    left: 'title', 
+  },
+  
+
+  datesSet: function(info) {
+    const titleEl = document.querySelector('.fc-toolbar-title');
+    if (titleEl) {
+      titleEl.innerText = `Calendario de Actividades  | ${info.view.title}`;
+    }
+  },
+  
+
 
     eventClick: function(info) {
       const event = info.event;
@@ -27,9 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const fin = new Date(event.end);
       const duracionMs = fin - inicio;
       const duracionMin = Math.floor(duracionMs / (1000 * 60)); // duración en minutos
-
       let textoDuracion = '';
-
       if (duracionMin >= 60) {
         const horas = Math.floor(duracionMin / 60);
         const minutos = duracionMin % 60;
@@ -37,12 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
          textoDuracion = `${duracionMin} minutos`;
       }
-
         document.getElementById('eventDuracion').innerText = textoDuracion;
-      
-      
-
-
       const modal = document.getElementById('eventModal');
       modal.style.display = "block";  
     }

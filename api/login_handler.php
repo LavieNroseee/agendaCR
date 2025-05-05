@@ -20,7 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../dashboard.php");
         exit;
     } else {
-        header("Location: ../login.php?error=1");
+        $_SESSION['login_error'] = "Credenciales incorrectas.";
+        header("Location: ../login");
         exit;
     }
 }
